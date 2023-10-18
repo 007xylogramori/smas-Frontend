@@ -1,10 +1,11 @@
 import { useState, FormEvent } from "react";
 import { useNavigate } from "react-router-dom";
-
+import { useContext } from 'react'
+import { LoginContext } from "../../context/loginContext";
 const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const {setUserDetails} = useContext(LoginContext)
   const navigate = useNavigate();
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -26,6 +27,10 @@ const LoginForm = () => {
     );
 
     const data = await response.json();
+
+    console.log(data.user," login page");
+
+    setUserDetails(data.user);
 
     navigate("/");
   };

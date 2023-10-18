@@ -1,15 +1,23 @@
 import { Routes, Route } from "react-router-dom";
 import LoginPage from "./pages/login";
 import Dashboard from "./pages/dashboard";
+import { AppProvider } from "./context/loginContext";
+import History from "./pages/history";
 
 const App = () => {
+  
   return (
+    
     <div>
-      <Routes>
-        <Route element={<Dashboard />} path="/" />
-        <Route element={<LoginPage />} path="/login" />
-      </Routes>
+      <AppProvider>
+        <Routes>
+          <Route element={<Dashboard />} path="/" />
+          <Route element={<LoginPage />} path="/login" />
+          <Route element={<History/>} path="/history" />
+        </Routes>
+      </AppProvider>
     </div>
+   
   );
 };
 
