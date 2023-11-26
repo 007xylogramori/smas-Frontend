@@ -1,4 +1,5 @@
-/** @type {import('tailwindcss').Config} */
+/** @type {import('@material-tailwind/react/utils/withMT').Config} */
+
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {

@@ -2,6 +2,7 @@ import { useContext, useState, useEffect } from "react";
 import { LoginContext } from "../../context/loginContext";
 import QrCode from "../../components/qrCode/QrCode";
 import { useNavigate } from "react-router-dom";
+import { NavbarDefault } from "../../components/navbar/Navbar";
 const Dashboard = () => {
   const navigate = useNavigate();
 
@@ -45,6 +46,7 @@ const Dashboard = () => {
 
   return (
     <>
+    <NavbarDefault/>
       <section className="bg-gray-50 dark:bg-gray-900 h-screen flex font-medium items-center justify-center flex-col">
         <div className="text-white font-bold text-2xl my-4">
           Central Mess IIITDMJ

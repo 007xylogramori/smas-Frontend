@@ -1,4 +1,5 @@
 import React from "react";
+import { NavbarDefault } from "../../components/navbar/Navbar";
 import { useContext, useEffect } from "react";
 import { LoginContext } from "../../context/loginContext";
 import { useNavigate } from "react-router-dom";
@@ -12,6 +13,11 @@ const History = () => {
   }, []);
 
   return (
+    <>
+
+    <NavbarDefault/>
+
+
     <div className="px-6 py-10 min-h-[100vh]  min-w-[100%] flex flex-col  md:flex-row bg-gray-900 md:gap-2">
       <div className="w-[100%] relative grid grid-cols-1 md:grid-cols-8 h-[100%] gap-10 ">
         <section className=" col-span-1 md:col-span-2 mx-4   bg-gray-50 dark:bg-gray-900  flex font-medium flex-col">
@@ -1025,6 +1031,7 @@ const History = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
