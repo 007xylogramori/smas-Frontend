@@ -15,25 +15,9 @@ const Dashboard = () => {
 
   const { userDetails } = useContext(LoginContext);
 
-  const [qrVisible, setQrVisible] = useState(false);
-  const [hash, setHash] = useState("");
-  const [meal, setMeal] = useState("");
   const handleQrGenerate = async () => {
-    const response = await fetch(
-      import.meta.env.VITE_API_URL + "/user/generate/",
-      {
-        method: "GET",
-
-        credentials: "include",
-      }
-    );
-
-    const data = await response.json();
-    console.log(data);
-    setQrVisible(true);
-
-    setHash(data.hash);
-    setMeal(data.meal);
+    navigate("/generateQr");
+    
   };
   const handleHistory = async () => {
     navigate("/history");
@@ -61,16 +45,16 @@ const Dashboard = () => {
               {userDetails.email}
             </h2>
           </div>
-          {qrVisible == true ? (
+          {/* {qrVisible == true ? (
             <div className="w-[100%] text-center text-yellow-500 font-bold">
               <div>Date : {currentDate}</div>
               <div>Meal : {meal.toLocaleUpperCase()}</div>
             </div>
           ) : (
             ""
-          )}
+          )} */}
           <div className="mt-3 text-white flex flex-col gap-2 text-sm items-center">
-            {qrVisible == true ? (
+            {/* {qrVisible == true ? (
               <QrCode hash={hash}  />
             ) : (
               <button
@@ -79,7 +63,16 @@ const Dashboard = () => {
               >
                 GENERATE-QR
               </button>
-            )}
+            )} */}
+
+              <button
+                onClick={handleQrGenerate}
+                className="w-[100%] bg-yellow-400 text-white px-2 py-2 font-bold rounded-md"
+              >
+                GENERATE-QR
+              </button>
+
+
             <button
               onClick={handleHistory}
               className="w-[100%] bg-green-400 text-white px-2 py-2 font-bold rounded-md"

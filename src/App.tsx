@@ -3,6 +3,7 @@ import LoginPage from "./pages/login";
 import Dashboard from "./pages/dashboard";
 import { AppProvider } from "./context/loginContext";
 import History from "./pages/history";
+import QrGen from "./pages/qrGeneration";
 
 const App = () => {
   
@@ -14,6 +15,7 @@ const App = () => {
           <Route element={<Dashboard />} path="/" />
           <Route element={<LoginPage />} path="/login" />
           <Route element={<History/>} path="/history" />
+          <Route element={<QrGen/>} path="/generateQr" />
         </Routes>
       </AppProvider>
     </div>
