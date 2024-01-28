@@ -6,6 +6,7 @@ import {
   Button,
   IconButton,
 } from "@material-tailwind/react";
+import { Link, useNavigate } from "react-router-dom";
 
 export function NavbarDefault() {
   const [openNav, setOpenNav] = React.useState(false);
@@ -38,9 +39,9 @@ export function NavbarDefault() {
           />
         </svg>
 
-        <a href="#" className="flex items-center">
+        <Link to="/generateQr" className="flex items-center">
           QrPage
-        </a>
+        </Link>
       </Typography>
       <Typography
         as="li"
@@ -62,9 +63,9 @@ export function NavbarDefault() {
             fill="#90A4AE"
           />
         </svg>
-        <a href="#" className="flex items-center">
+        <Link to="/history" className="flex items-center">
           Account
-        </a>
+        </Link>
       </Typography>
       <Typography
         as="li"
@@ -84,9 +85,9 @@ export function NavbarDefault() {
             fill="#90A4AE"
           />
         </svg>
-        <a href="#" className="flex items-center">
+        <Link to="/announcements" className="flex items-center">
           Announcements
-        </a>
+        </Link>
       </Typography>
       <Typography
         as="li"
@@ -108,12 +109,17 @@ export function NavbarDefault() {
             fill="#90A4AE"
           />
         </svg>
-        <a href="/qrPage" className="flex items-center">
+        <Link to="/menu" className="flex items-center">
           Mess Menu
-        </a>
+        </Link>
       </Typography>
     </ul>
   );
+
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    navigate("/login");
+  };
 
   return (
     <Navbar className="mx-auto min-w-[100vw] border-0 w-[100%] bg-gray-800 border-b max-w-screen-xl px-4 py-2 lg:px-8 lg:py-2 sticky top-0 z-10 shadow-lg border-indigo-950">
@@ -137,7 +143,9 @@ export function NavbarDefault() {
               d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"
             />
           </svg>
-          <span>SMAS</span>
+          <span>
+            <Link to="/">SMAS</Link>
+          </span>
         </Typography>
         <div className="hidden lg:block">{navList}</div>
         <div className="flex items-center gap-x-1">
@@ -146,7 +154,7 @@ export function NavbarDefault() {
             size="sm"
             className="hidden md:flex md:flex-row bg-red-500 border-gray-700 "
           >
-            <span className="flex flex-row gap-2">
+            <span onClick={handleLogout} className="flex flex-row gap-2">
               Logout
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -207,29 +215,29 @@ export function NavbarDefault() {
         <div className="container mx-auto">
           {navList}
           <div className="flex items-center gap-x-1">
-          <Button
-            variant="gradient"
-            size="sm"
-            className=" md:flex md:flex-row bg-red-500 border-gray-700 "
-          >
-            <span className="flex flex-row gap-2">
-              Logout
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="w-4 h-4"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75"
-                />
-              </svg>
-            </span>
-          </Button>
+            <Button
+              variant="gradient"
+              size="sm"
+              className=" md:flex md:flex-row bg-red-500 border-gray-700 "
+            >
+              <span className="flex flex-row gap-2">
+                Logout
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="w-4 h-4"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75"
+                  />
+                </svg>
+              </span>
+            </Button>
           </div>
         </div>
       </MobileNav>
