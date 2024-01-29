@@ -2,15 +2,18 @@ import { useState, FormEvent } from "react";
 import { useNavigate } from "react-router-dom";
 import { useContext } from 'react'
 import { LoginContext } from "../../context/loginContext";
+import Loader from "../loader/Loader";
 const LoginForm = () => {
   const [email, setEmail] = useState("");
+  const [error, setError] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
   const {setUserDetails} = useContext(LoginContext)
   const navigate = useNavigate();
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
+    setLoading(true);
     const response = await fetch(
       import.meta.env.VITE_API_URL + "/user/login/",
       {
@@ -25,18 +28,25 @@ const LoginForm = () => {
         credentials: "include",
       }
     );
-
     const data = await response.json();
+    setLoading(false);
+    if(response.status>=400){
+      setError(data.detail);
+      // console.log(data," login page");
+    }  
+    else{
+      setUserDetails(data.user);
+      // console.log(data," login page");
+      navigate("/");
+    }
+    
 
-    console.log(data.user," login page");
-
-    setUserDetails(data.user);
-
-    navigate("/");
+    
   };
 
   return (
     <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
+      
       <div>
         <label
           htmlFor="email"
@@ -74,10 +84,16 @@ const LoginForm = () => {
       </div>
       <button
         type="submit"
+        disabled={loading}
         className="w-full flex justify-center text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
       >
-        Sign In
+        {
+          loading?<Loader text="Logging In ..."/>:"Sign In"
+        }
       </button>
+      <div className="text-red-500 w-[100%] text-center">
+      {error}
+      </div>
     </form>
   );
 };
