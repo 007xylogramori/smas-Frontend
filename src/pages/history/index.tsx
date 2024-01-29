@@ -1,6 +1,5 @@
-import React, { useState } from "react";
 import { NavbarDefault } from "../../components/navbar/Navbar";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { LoginContext } from "../../context/loginContext";
 import { useNavigate } from "react-router-dom";
 import Checkbox from "../../components/checkbox/Checkbox";
@@ -38,7 +37,7 @@ const History = () => {
   const { userDetails } = useContext(LoginContext);
 
   useEffect(() => {
-    if (Object.keys(userDetails).length == 0) {
+    if (userDetails.id===-1 && userDetails.email==="" && userDetails.roll_no==="") {
       navigate("/login");
     }
     getMealsDetails();
@@ -209,7 +208,7 @@ const History = () => {
                 :
                 (
                   
-                    <div className="">No meal details available</div>
+                    <tr className="">No meal details available</tr>
                   
                 )
               

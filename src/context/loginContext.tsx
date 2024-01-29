@@ -1,17 +1,48 @@
-import React ,{useState} from "react";
+import React, { createContext, useState, ReactNode } from "react";
 
-const LoginContext = React.createContext({});
+interface UserDetails {
+  id: number;
+  name: string;
+  email: string;
+  roll_no: string;
+  is_staff: boolean;
+  is_active: boolean;
+}
 
-const AppProvider = ({ children }:any) => {
-    const [userDetails,setUserDetails] = useState({});
+interface LoginContextProps {
+  userDetails: UserDetails;
+  setUserDetails: React.Dispatch<React.SetStateAction<UserDetails>>;
+}
 
-  return(
-    <LoginContext.Provider value={{userDetails,setUserDetails}}>
-    {children}
+const LoginContext = createContext<LoginContextProps>({
+  userDetails: {
+    id: -1,
+    name: "",
+    email: "",
+    roll_no: "",
+    is_staff: false,
+    is_active: false,
+  },
+  setUserDetails: () => {},
+});
+
+interface AppProviderProps {
+  children: ReactNode;
+}
+
+const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
+  const [userDetails, setUserDetails] = useState<UserDetails>({id: -1,
+    name: "",
+    email: "",
+    roll_no: "",
+    is_staff: false,
+    is_active: false,});
+
+  return (
+    <LoginContext.Provider value={{ userDetails, setUserDetails }}>
+      {children}
     </LoginContext.Provider>
-  )
+  );
 };
-
-
 
 export { LoginContext, AppProvider };

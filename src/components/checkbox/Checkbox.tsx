@@ -1,6 +1,10 @@
 import React from 'react'
 
-const Checkbox = (props) => {
+interface CheckboxProps {
+  flag: boolean;
+}
+
+const Checkbox: React.FC<CheckboxProps> = (props) => {
   return (
     <div>
         {

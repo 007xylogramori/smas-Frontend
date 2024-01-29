@@ -1,4 +1,3 @@
-import React from 'react'
 import { useContext, useState, useEffect } from "react";
 import { LoginContext } from "../../context/loginContext";
 import QrCode from "../../components/qrCode/QrCode";
@@ -19,8 +18,8 @@ const QrGen = () => {
   const { userDetails } = useContext(LoginContext);
 
 
-  const [qrVisible, setQrVisible] = useState(false);
-  const [hash, setHash] = useState("");
+  // const [qrVisible, setQrVisible] = useState(false);
+  const [hash, setHash] = useState<string>("");
   const [meal, setMeal] = useState("");
   const handleQrGenerate = async () => {
     const response = await fetch(
@@ -33,8 +32,6 @@ const QrGen = () => {
     );
 
     const data = await response.json();
-    console.log(data);
-    setQrVisible(true);
 
     setHash(data.hash);
     setMeal(data.meal);

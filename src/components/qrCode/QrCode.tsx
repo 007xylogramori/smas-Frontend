@@ -1,6 +1,8 @@
-
+interface QrCodeProps {
+  hash: string; 
+}
 import QRCode from "react-qr-code";
-const QrCode = ({hash}) => {
+const QrCode: React.FC<QrCodeProps> = ({hash}) => {
     console.log(hash);
   return (
     <div style={{  background: 'white', padding: '16px' ,  margin: "0 auto",  width: "100%" }}>

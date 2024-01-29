@@ -14,9 +14,10 @@ const Dashboard = () => {
     navigate("/history");
   };
   useEffect(() => {
-    if (Object.keys(userDetails).length == 0) {
+    if (userDetails.id===-1 && userDetails.email==="" && userDetails.roll_no==="") {
       navigate("/login");
     }
+    console.log(userDetails)
   }, []);
 
   return (
