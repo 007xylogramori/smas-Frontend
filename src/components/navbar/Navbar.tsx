@@ -122,7 +122,7 @@ export function NavbarDefault() {
   };
 
   return (
-    <Navbar className="mx-auto min-w-[100vw] border-0 w-[100%] bg-gray-800 border-b max-w-screen-xl px-4 py-2 lg:px-8 lg:py-2 sticky top-0 z-10 shadow-lg border-indigo-950">
+    <Navbar className="mx-auto  border-0 w-[100%] bg-gray-800 border-b max-w-screen-xl px-4 py-2 lg:px-8 lg:py-2 sticky top-0 z-10 shadow-lg border-indigo-950">
       <div className="container mx-auto flex items-center justify-between text-blue-gray-900">
         <Typography
           as="a"
