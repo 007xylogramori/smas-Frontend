@@ -83,13 +83,14 @@ const Dashboard = () => {
               <button className="w-[90%] md:w-[200px]  hover:bg-red-700 duration-200 transition-all bg-red-500 text-white px-2 py-8 font-bold rounded-md">
                 Announcements
               </button>
-              <button className="w-[90%] md:w-[200px]  hover:bg-blue-700 duration-200 transition-all bg-blue-500 text-white px-2 py-8 font-bold rounded-md">
+              <a target="_blank" href="https://drive.google.com/file/d/1E1lP1fuKAXD3qJ20QtZRYKytNAiPaedC/view?usp=drivesdk" className="w-[90%] md:w-[200px]  hover:bg-blue-700 duration-200 transition-all bg-blue-500 text-white px-2 py-8 font-bold rounded-md text-center">
                 Explore Menu
-              </button>
-              <button className="w-[90%] md:w-[200px]  hover:bg-orange-700 duration-200 transition-all bg-orange-500 text-white px-2 py-8 font-bold rounded-md">
+              </a>
+              <button disabled className="w-[90%] cursor-not-allowed md:w-[200px] 
+               hover:bg-orange-700 duration-200 transition-all bg-orange-500 text-white px-2 py-8 font-bold rounded-md">
                 Report
               </button>
-              <button className="w-[90%] md:w-[200px]  hover:bg-purple-700 duration-200 transition-all bg-purple-500 text-white px-2 py-8 font-bold rounded-md">
+              <button disabled className="w-[90%] cursor-not-allowed md:w-[200px]  hover:bg-purple-700 duration-200 transition-all bg-purple-500 text-white px-2 py-8 font-bold rounded-md">
                 Fee Details
               </button>
             </div>

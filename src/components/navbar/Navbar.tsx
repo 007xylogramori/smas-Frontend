@@ -85,7 +85,7 @@ export function NavbarDefault() {
             fill="#90A4AE"
           />
         </svg>
-        <Link to="/announcements" className="flex items-center">
+        <Link  className="flex items-center">
           Announcements
         </Link>
       </Typography>
@@ -109,7 +109,7 @@ export function NavbarDefault() {
             fill="#90A4AE"
           />
         </svg>
-        <Link to="/menu" className="flex items-center">
+        <Link to="https://drive.google.com/file/d/1E1lP1fuKAXD3qJ20QtZRYKytNAiPaedC/view?usp=drivesdk"  target="_blank" className="flex items-center">
           Mess Menu
         </Link>
       </Typography>
